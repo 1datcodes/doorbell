@@ -3,6 +3,7 @@
 #include <AudioFileSourceSD.h>
 #include <AudioGeneratorMP3.h>
 #include <AudioOutputI2S.h>
+#include <AudioOutputI2SNoDAC.h>
 
 #define REED_PIN 14
 #define SD_CS_PIN 5
@@ -26,8 +27,7 @@ void setup() {
   }
   Serial.println("SD Card Mounted");
 
-  out = new AudioOutputI2S();
-  out->SetPinout(26, 25, 22); // BCLK, WCLK, DOUT
+  out = new AudioOutputI2SNoDAC();
   out->SetGain(0.8);
 
   mp3 = new AudioGeneratorMP3();
